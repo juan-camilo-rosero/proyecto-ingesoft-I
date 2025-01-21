@@ -16,17 +16,12 @@ import { getDocument, updateDocument } from "@/lib/db_functions";
 import { UserContext } from "@/context/UserContext";
 
 export default function UpdateDataDialog({ isOpen, onOpenChange }) {
-  // States separated for each field
-  const [username, setUsername] = useState("");
-  const [profilePic, setProfilePic] = useState(null);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState(""); // Phone number without dashes
-  const [school, setSchool] = useState("");
+  const [name, setName] = useState("");
+  const [language, setLanguage] = useState("");
+  const [dialect, setDialect] = useState("");
 
   const [errors, setErrors] = useState({});
-  const [isEditable, setIsEditable] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false); // New state to manage the update process
+  const [isUpdating, setIsUpdating] = useState(false); // State to manage the update process
   const [updateError, setUpdateError] = useState(""); // State for error message
 
   const { email } = useContext(UserContext);
@@ -36,12 +31,9 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
     const getData = async () => {
       try {
         const res = await getDocument("users", email);
-        setUsername(res.username);
-        setProfilePic(res.profilePic);
-        setFirstName(res.firstName);
-        setLastName(res.lastName);
-        setPhone(res.phone);
-        setSchool(res.school);
+        setName(res.name);
+        setLanguage(res.language);
+        setDialect(res.dialect);
         setUpdateError("");
       } catch (err) {
         console.error("An error occurred trying to get the data: " + err);
@@ -55,22 +47,8 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    switch (id) {
-      case "username":
-        setUsername(value);
-        break;
-      case "firstName":
-        setFirstName(value);
-        break;
-      case "lastName":
-        setLastName(value);
-        break;
-      case "phone":
-        // Ensure the phone contains only numbers
-        setPhone(value.replace(/\D/g, "")); // Remove any non-numeric characters
-        break;
-      default:
-        break;
+    if (id === "name") {
+      setName(value);
     }
   };
 
@@ -79,12 +57,7 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
       setIsUpdating(true); // Start the update process
       setUpdateError(""); // Clear error message
       try {
-        const res = await updateDocument("users", email, {
-          username,
-          firstName,
-          lastName,
-          phone,
-        });
+        await updateDocument("users", email, { name });
         // If the update is successful, close the dialog
         onOpenChange(false);
       } catch (err) {
@@ -100,18 +73,8 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
 
   const validateFormData = () => {
     const newErrors = {};
-    if (!username || username.length < 3) {
-      newErrors.username = "Username must be at least 3 characters.";
-    }
-    if (!firstName) {
-      newErrors.firstName = "First name is required.";
-    }
-    if (!lastName) {
-      newErrors.lastName = "Last name is required.";
-    }
-    // Validate phone number without dashes
-    if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
-      newErrors.phone = "Phone must be exactly 10 digits (no dashes).";
+    if (!name || name.length < 3) {
+      newErrors.name = "Username must be at least 3 characters.";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -121,88 +84,48 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Update Data</DialogTitle>
+          <DialogTitle>Actualizar información</DialogTitle>
           <DialogDescription>
-            Modify your profile information below. Click &quot;Save changes&quot; when you&apos;re done.
+            Modifica tus datos personales, presiona actualizar cuando hayas terminado
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
+            <Label htmlFor="Nombre de usuario" className="text-right">
+              Nombre
             </Label>
             <Input
-              id="username"
-              value={username}
+              id="name"
+              value={name}
               onChange={handleInputChange}
-              placeholder="@username"
+              placeholder=""
               className="col-span-3"
             />
-            {errors.username && (
-              <p className="text-red-500 col-span-4">{errors.username}</p>
+            {errors.name && (
+              <p className="text-red-500 col-span-4">{errors.name}</p>
             )}
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="firstName" className="text-right">
-              First Name
+            <Label htmlFor="language" className="text-right">
+              Idioma
             </Label>
             <Input
-              id="firstName"
-              value={firstName}
-              onChange={handleInputChange}
-              placeholder="Enter your first name"
-              className={`col-span-3 ${
-                !isEditable && "bg-gray-200 cursor-not-allowed"
-              }`}
-              readOnly={!isEditable}
+              id="language"
+              value={language}
+              readOnly
+              className="col-span-3 bg-gray-200 cursor-not-allowed"
             />
-            {errors.firstName && (
-              <p className="text-red-500 col-span-4">{errors.firstName}</p>
-            )}
           </div>
+          {updateError && (
+            <p className="text-red-500 col-span-4">{updateError}</p>
+          )}
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="lastName" className="text-right">
-              Last Name
+            <Label htmlFor="dialect" className="text-right">
+              Dialecto
             </Label>
             <Input
-              id="lastName"
-              value={lastName}
-              onChange={handleInputChange}
-              placeholder="Enter your last name"
-              className={`col-span-3 ${
-                !isEditable && "bg-gray-200 cursor-not-allowed"
-              }`}
-              readOnly={!isEditable}
-            />
-            {errors.lastName && (
-              <p className="text-red-500 col-span-4">{errors.lastName}</p>
-            )}
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="phone" className="text-right">
-              Phone
-            </Label>
-            <Input
-              id="phone"
-              value={phone}
-              onChange={handleInputChange}
-              placeholder="Enter your phone number"
-              className={`col-span-3 ${
-                !isEditable && "bg-gray-200 cursor-not-allowed"
-              }`}
-              readOnly={!isEditable}
-            />
-            {errors.phone && (
-              <p className="text-red-500 col-span-4">{errors.phone}</p>
-            )}
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="school" className="text-right">
-              School
-            </Label>
-            <Input
-              id="school"
-              value={school}
+              id="dialect"
+              value={dialect}
               readOnly
               className="col-span-3 bg-gray-200 cursor-not-allowed"
             />
@@ -212,9 +135,6 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
           )}
         </div>
         <DialogFooter>
-          <Button onClick={() => setIsEditable(!isEditable)}>
-            {isEditable ? "Lock Editing" : "Unlock Editing"}
-          </Button>
           <Button
             onClick={handleSaveChanges}
             disabled={isUpdating}
@@ -223,7 +143,7 @@ export default function UpdateDataDialog({ isOpen, onOpenChange }) {
               opacity: isUpdating ? 0.5 : 1,
             }}
           >
-            {isUpdating ? "Updating..." : "Save changes"}
+            {isUpdating ? "Cargando..." : "Guardar cambios"}
           </Button>
         </DialogFooter>
       </DialogContent>

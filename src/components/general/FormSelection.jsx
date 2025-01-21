@@ -23,7 +23,7 @@ function FormSelect({
   value,
   setValue,
   labelText,
-  placeholder = "Select an option...",
+  placeholder = "Ingresa una opción...",
   options = [],
 }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -142,10 +142,10 @@ function PageContent() {
                 setValue={setNativeLanguage}
                 id="examDate"
                 options={[
-                  { value: "english", label: "Inglés" },
-                  { value: "spanish", label: "Español" },
-                  { value: "russian", label: "Ruso" },
-                  { value: "french", label: "Frances" },
+                  { value: "inglés", label: "Inglés" },
+                  { value: "español", label: "Español" },
+                  { value: "ruso", label: "Ruso" },
+                  { value: "francés", label: "Frances" },
                 ]}
               />
             </div>
@@ -156,10 +156,10 @@ function PageContent() {
                 setValue={setLanguage}
                 id="school"
                 options={[
-                  { value: "english", label: "Inglés" },
-                  { value: "spanish", label: "Español" },
-                  { value: "russian", label: "Ruso" },
-                  { value: "french", label: "Frances" },
+                  { value: "inglés", label: "Inglés" },
+                  { value: "español", label: "Español" },
+                  { value: "ruso", label: "Ruso" },
+                  { value: "francés", label: "Frances" },
                 ]}
               />
               <FormSelection
@@ -185,7 +185,7 @@ function PageContent() {
                 disabled={isLoading}
               />
               <Button
-                text="return"
+                text="volver"
                 type="secondary"
                 size="xl"
                 func={() => setSection(0)}

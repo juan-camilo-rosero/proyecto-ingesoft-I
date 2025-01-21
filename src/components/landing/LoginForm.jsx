@@ -58,11 +58,11 @@ function LoginForm() {
       onClick={(e) => e.stopPropagation()}
     >
       <div className="w-full flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-fblue-700">
+        <h2 className="text-2xl font-semibold text-black">
           Inicia sesión
         </h2>
         <RiCloseCircleFill
-          className="text-3xl text-fblue-700 relative cursor-pointer"
+          className="text-3xl text-tblue-900 relative cursor-pointer"
           onClick={() => setLoginOpen(false)}
         />
       </div>

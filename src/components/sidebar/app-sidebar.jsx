@@ -25,14 +25,9 @@ const data = {
   },
   navMain: [
     {
-      name: "Dashboard",
+      name: "Panel",
       url: "/dashboard",
       icon: RiHome3Fill,
-    },
-    {
-      name: "Statistics",
-      url: "#",
-      icon: RiLineChartFill,
     },
   ],
   courses: [

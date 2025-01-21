@@ -15,9 +15,6 @@ function Header() {
         <img src="/logo/logo_talkie.png" alt="Logo fractal" className="h-6 md:h-8"/>
         <p className='text-xl lg:text-2xl mb-1 font-semibold'>Talkie</p>
       </div>
-      <button className="md:hidden">
-        <RiMenu3Fill className="text-fred-700 text-3xl"/>
-      </button>
       <div className="hidden md:flex md:flex-row md:gap-8">
         <Button text="Iniciar sesión" type="secondary" func={handleOpenLogin}/>
         <Button text="Registrarme" type="primary" func={handleOpenSignup}/>
