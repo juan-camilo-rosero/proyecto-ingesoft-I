@@ -111,9 +111,9 @@ function LessonsProgress() {
           <div className={`h-1 rounded-full w-[${precentage}%] bg-fblue-700`}></div>
         </div>
         <div className="flex items-center justify-between text-fgray-800 text-sm font-semibold">
-          <p>{precentage}% completed</p>
+          <p>{precentage}% completo</p>
           <p>
-            {completedLessons}/{totalLessons} lessons
+            {completedLessons}/{totalLessons} lecciones
           </p>
         </div>
       </div>

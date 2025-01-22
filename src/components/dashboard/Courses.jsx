@@ -79,8 +79,8 @@ function Courses() {
                 }`}
               >
                 {isCompleted
-                  ? "Completed"
-                  : `Progress: ${course.completedLessons}/${course.totalLessons}`}
+                  ? "Finalizado"
+                  : `Progreso: ${course.completedLessons}/${course.totalLessons}`}
               </p>
             </a>
           );

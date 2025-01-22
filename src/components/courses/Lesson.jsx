@@ -9,7 +9,7 @@ function Lesson({preview, lesson}) {
         <div className="w-3/5">
             <p className={`${lesson.completed ? "text-fgray-100" : "text-fblue-700"} text-base font-semibold`}>{lesson.title}</p>
             <p className={`${lesson.completed ? "text-fgray-100" : "text-fgray-800"} font-semibold text-xs opacity-75 mb-4`}>{lesson.minutes} minutes</p>
-            <p className={`${lesson.completed ? "text-fgray-100" : "text-fgray-800"} text-sm`}>{(lesson.completed) ? "Completed" : "Pending"}</p>
+            <p className={`${lesson.completed ? "text-fgray-100" : "text-fgray-800"} text-sm`}>{(lesson.completed) ? "Completo" : "Pendiente"}</p>
         </div>
     </a>
   )

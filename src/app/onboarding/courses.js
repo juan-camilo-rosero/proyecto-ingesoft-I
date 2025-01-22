@@ -10,10 +10,10 @@ const courses = {
         {
           title: "Saludar como un rolo",
           minutes: 12,
-          img: "https://upload.wikimedia.org/wikipedia/commons/8/88/Plaza_Bol%C3%ADvar_de_Bogot%C3%A1.jpg",
+          img: "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/SNHL2EBJHNFKDMR6OVPV3HNBNI.jpg",
           completed: false,
           url: "/course/expresiones-rolas/saludar-como-un-rolo",
-          video: "https://www.youtube.com/embed/fakeRoloGreeting",
+          video: "https://www.youtube.com/embed/C13nu4c-yWA",
           course: "expresiones-rolas",
           summary:
             "En esta lección aprenderás cómo saluda un rolo de pura cepa. Desde el clásico '¡Qué hubo, chino!' hasta el popular '¡Oiga, sumercé!', te enseñaremos cómo usar estas expresiones para sonar auténtico al llegar a Bogotá o cualquier parte de Cundinamarca.",
@@ -21,10 +21,10 @@ const courses = {
         {
           title: "Expresiones para hablar con confianza",
           minutes: 18,
-          img: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Cerros_de_Monserrate_y_Guadalupe.jpg",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8aZq7qMzSrAMyCmwqCSAAeF0lj5YCQRa7kA&s",
           completed: false,
           url: "/course/expresiones-rolas/hablar-con-confianza",
-          video: "https://www.youtube.com/embed/fakeRoloConfidence",
+          video: "https://www.youtube.com/embed/_Ja85dXhpUw",
           course: "expresiones-rolas",
           summary:
             "Aquí te mostramos cómo ser el alma de una conversación en Bogotá. Aprende frases como 'No sea pingo' (no sea atrevido), 'Se le tiene' (para confirmar disponibilidad) y el infaltable '¿Cómo así?'. ¡Hablarás como todo un bogotano en un dos por tres!",
@@ -32,7 +32,7 @@ const courses = {
         {
           title: "Las joyas del humor rolo",
           minutes: 15,
-          img: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Transmilenio_Bogot%C3%A1.jpg",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6RDiihSVIp01m8Q92_o0jP3vlJXFgiKYGCw&s",
           completed: false,
           url: "/course/expresiones-rolas/humor-rolo",
           video: "https://www.youtube.com/embed/fakeRoloHumor",
