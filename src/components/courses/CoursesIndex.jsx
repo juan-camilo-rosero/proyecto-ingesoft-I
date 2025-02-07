@@ -29,22 +29,19 @@ function CoursesIndex({ id }) {
     setLessons,
   } = useContext(CoursesContext);
 
-  useEffect(
-    (e) => {
-      if (courses) {
-        const prueba = courses.filter((course) => course.url === id);
-        if (courses.length) {
-          const course = prueba[0];
-          setName(course.name);
-          setVideo(course.video);
-          setSummary(course.summary);
-          setLessons(course.lessons);
-          console.log(course);
-        }
+  useEffect(() => {
+    if (courses) {
+      const prueba = courses.filter((course) => course.url === id);
+      if (prueba.length) {
+        const course = prueba[0];
+        setName(course.name);
+        setVideo(course.video);
+        setSummary(course.summary);
+        setLessons(course.lessons);
       }
-    },
-    [courses]
-  );
+    }
+  }, [courses, id, setLessons, setName, setSummary, setVideo]);
+  
 
   return (
     <section className="p-5">

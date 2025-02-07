@@ -74,37 +74,38 @@ function PageContent() {
   const {id} = useParams()
 
   useEffect(() => {
-      const checkUser = async () => {
-        const res = await findUser();
-        if (!res) {
-          window.location.href = "/";
-          return;
-        }
-        setEmail(res.email);
+    const checkUser = async () => {
+      const res = await findUser();
+      if (!res) {
+        window.location.href = "/";
+        return;
+      }
+      setEmail(res.email);
   
-        const userData = await getUser(res.email);
-        const coursesData = await getCourses(res.email);
+      const userData = await getUser(res.email);
+      const coursesData = await getCourses(res.email);
   
-        if (!coursesData || Object.keys(coursesData).length === 0) {
-          window.location.href = "/onboarding";
-          return;
-        }
+      if (!coursesData || Object.keys(coursesData).length === 0) {
+        window.location.href = "/onboarding";
+        return;
+      }
   
-        setUser(userData)
-        setName(userData.name)
-        setNativeLanguage(userData.nativeLanguage)
-        setLanguage(userData.language)
-        setDialect(userData.dialect)
+      setUser(userData);
+      setName(userData.name);
+      setNativeLanguage(userData.nativeLanguage);
+      setLanguage(userData.language);
+      setDialect(userData.dialect);
   
-        const coursesContent = Object.keys(coursesData).map(
-          (key) => coursesData[key]
-        );
+      const coursesContent = Object.keys(coursesData).map(
+        (key) => coursesData[key]
+      );
   
-        setCourses(coursesContent);
-      };
+      setCourses(coursesContent);
+    };
   
-      checkUser();
-    }, [setEmail, setCourses]);
+    checkUser();
+  }, [setEmail, setCourses, setName, setNativeLanguage, setLanguage, setDialect]);
+  
 
   // Evitar renderizar contenido si `user` aún es nulo
   if (user === null) {

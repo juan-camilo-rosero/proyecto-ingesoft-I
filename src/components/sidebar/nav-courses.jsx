@@ -30,15 +30,15 @@ import {
 const getIcon = (type) => {
   switch (type) {
     case "food":
-      return <RiDrinks2Fill  />;
+      return <RiDrinks2Fill  className="text-fblue-700"/>;
     case "expretions":
-      return <RiHeart3Fill />;
+      return <RiHeart3Fill className="text-fblue-700" />;
     case "people":
-      return <RiUser5Fill />;
+      return <RiUser5Fill className="text-fblue-700" />;
     case "languages":
-      return <RiBookReadLine />;
+      return <RiBookReadLine className="text-fblue-700" />;
     default:
-      return <RiEarthFill />;
+      return <RiEarthFill className="text-fblue-700" />;
   }
 };
 

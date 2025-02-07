@@ -86,30 +86,31 @@ function PageContent() {
         return;
       }
       setEmail(res.email);
-
+  
       const userData = await getUser(res.email);
       const coursesData = await getCourses(res.email);
-
+  
       if (!coursesData || Object.keys(coursesData).length === 0) {
         window.location.href = "/onboarding";
         return;
       }
-
+  
       setUser(userData);
       setName(userData.name);
       setNativeLanguage(userData.nativeLanguage);
       setLanguage(userData.language);
       setDialect(userData.dialect);
-
+  
       const coursesContent = Object.keys(coursesData).map(
         (key) => coursesData[key]
       );
-
+  
       setCourses(coursesContent);
     };
-
+  
     checkUser();
-  }, [setEmail, setCourses]);
+  }, [setEmail, setCourses, setName, setNativeLanguage, setLanguage, setDialect]);
+  
 
   // Evitar renderizar contenido si `user` aún es nulo
   if (user === null) {

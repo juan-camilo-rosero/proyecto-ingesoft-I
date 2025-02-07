@@ -28,7 +28,7 @@ function LessonSection({id, lesson}) {
         }
       }
     },
-    [courses]
+    [courses, id, lesson, setLessons]
   );
   return (
     <section className="flex flex-col gap-8 lg:flex-row overflow-y-auto mt-10">

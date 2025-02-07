@@ -104,7 +104,7 @@ function PageContent() {
     };
 
     checkUser();
-  }, [setEmail, setCourses]);
+  }, [setEmail, setCourses, setDialect, setLanguage, setName, setNativeLanguage]);
 
   return (
     <SidebarProvider>
@@ -148,8 +148,8 @@ function PageContent() {
                 <div className="rounded-xl w-full mt-5 bg-fblue-700 flex flex-col md:flex-row md:gap-6 py-6 items-center lg:px-8 lg:gap-12">
                   <img src="logo/logo_talkie.png" alt="Fotito feliz :D" className="w-[30%] md:w-28 mb-6 md:mb-0 md:ml-6 lg:ml-0"/>
                   <div>
-                    <h3 className="text-3xl font-semibold text-fgray-200 lg:text-4xl">Tu puedes!!</h3>
-                    <p className="text-xl font-semibold text-fgray-400 mt-2">Yo creo en ti :D...</p>
+                    <h3 className="text-3xl font-semibold text-fgray-100 lg:text-4xl">Tu puedes!!</h3>
+                    <p className="text-xl font-semibold text-fgray-200 mt-2">Yo creo en ti :D...</p>
                   </div>
                 </div>
               </div>
