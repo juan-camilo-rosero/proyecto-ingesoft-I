@@ -14,8 +14,8 @@ function Button({ text, func, type, size, aditionalStyles = "", disabled = false
     font-semibold py-3 md:py-2 px-8 rounded-md outline-none transition-all
     ${baseClasses}
     ${sizeClass}
-    ${aditionalStyles} /* Coloca las clases adicionales al final */
-    ${bgClass} /* Coloca el fondo predeterminado después para garantizar que no interfiera */
+    ${aditionalStyles}
+    ${bgClass}
   `.trim();
 
   return (
