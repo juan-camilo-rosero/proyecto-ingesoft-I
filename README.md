@@ -18,6 +18,7 @@ Talkie es una aplicación web con IA que, mediante gamificación, busca facilita
 * Next.js
 * Tailwind
 * Figma
+* i18 React
 
 ## Servicios externos:
 
