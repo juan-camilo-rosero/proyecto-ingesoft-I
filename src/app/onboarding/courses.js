@@ -41,7 +41,7 @@ const courses = {
             "El humor rolo tiene su propio estilo, lleno de ironía y expresiones únicas. Aprende a usar '¡No joda!' para mostrar sorpresa, 'De malas' para resignarte con estilo, y 'Me dejó la flota' cuando pierdes el bus. ¡Serás la estrella de cualquier tertulia rola!",
         },
       ],
-      video: "https://www.youtube.com/embed/fakeRoloCourseIntro",
+      video: "https://www.youtube.com/embed/TMt3lukTbK4",
       summary:
         "Este curso está diseñado para enseñarte las expresiones más comunes del dialecto rolo, utilizado principalmente en Bogotá y sus alrededores. Desde saludos hasta frases para el día a día, aprenderás a comunicarte como todo un local.",
     },
